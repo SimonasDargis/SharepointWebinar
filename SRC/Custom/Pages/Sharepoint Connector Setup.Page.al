@@ -197,16 +197,7 @@ page 50000 "Sharepoint Connector Setup"
                     OS.Write(FileContents);
                     IS := TempBlob.CreateInStream();
 
-                    if SharePointClient.GetLists(SharePointList) then begin
-                        SharePointList.SetRange(Title, 'Documents');
-                        if SharePointList.FindFirst() then begin
-                            if SharePointClient.GetDocumentLibraryRootFolder(SharePointList.OdataId, SharePointFolder) then //Can use Id instead of title
-                                SharePointClient.AddFileToFolder(FileDirectory, FileName, IS, SharePointFile);
-                        end;
-                    end else begin
-                        Diag := SharePointClient.GetDiagnostics();
-                        Error(SaveFailedErr, Diag.GetErrorMessage(), Diag.GetHttpRetryAfter(), Diag.GetHttpStatusCode(), Diag.GetResponseReasonPhrase());
-                    end;
+                    SharePointClient.AddFileToFolder(FileDirectory, FileName, IS, SharePointFile);
                 end;
             }
             action(DownloadFile)
