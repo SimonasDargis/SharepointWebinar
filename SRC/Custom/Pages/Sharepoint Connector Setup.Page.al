@@ -184,14 +184,9 @@ page 50000 "Sharepoint Connector Setup"
                 trigger OnAction()
                 var
                     SharePointFile: Record "SharePoint File" temporary;
-                    SharePointList: Record "SharePoint List" temporary;
-                    SharePointFolder: Record "SharePoint Folder" temporary;
-                    SaveFailedErr: Label 'Save to SharePoint failed.\ErrorMessage: %1\HttpRetryAfter: %2\HttpStatusCode: %3\ResponseReasonPhrase: %4', Comment = '%1=GetErrorMessage; %2=GetHttpRetryAfter; %3=GetHttpStatusCode; %4=GetResponseReasonPhrase';
-                    AadTenantId: Text;
                     IS: InStream;
                     OS: OutStream;
                     TempBlob: Codeunit "Temp Blob";
-                    Diag: Interface "HTTP Diagnostics";
                 begin
                     OS := TempBlob.CreateOutStream();
                     OS.Write(FileContents);
