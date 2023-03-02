@@ -90,8 +90,8 @@ page 50000 "Sharepoint Connector Setup"
                     SharePointList: Record "SharePoint List" temporary;
                     //Used to display a Sharpoint list
                     SCListRec: Record "Sharepoint Connector List";
-                    SharePointFolder: Record "SharePoint Folder";
-                    SharePointFile: Record "SharePoint File";
+                    SharePointFolder: Record "SharePoint Folder" temporary;
+                    SharePointFile: Record "SharePoint File" temporary;
                 begin
                     if SharePointClient.GetLists(SharePointList) then begin //Sharepoint List is empty, GetLists writes data
                         SCListRec.DeleteAll(); //List is not a temporary record, delete to clear any data.
@@ -135,8 +135,8 @@ page 50000 "Sharepoint Connector Setup"
                     Diag: Interface "HTTP Diagnostics";
                     SharePointList: Record "SharePoint List" temporary;
                     SCListRec: Record "Sharepoint Connector List";
-                    SharePointFolder: Record "SharePoint Folder";
-                    SharePointFile: Record "SharePoint File";
+                    SharePointFolder: Record "SharePoint Folder" temporary;
+                    SharePointFile: Record "SharePoint File" temporary;
                     filename: Text;
                     strpos: Integer;
                 begin
