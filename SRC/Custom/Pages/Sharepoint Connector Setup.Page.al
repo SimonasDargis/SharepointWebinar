@@ -44,7 +44,7 @@ page 50000 "Sharepoint Connector Setup"
                 field(FileDirectory; FileDirectory)
                 {
                     ApplicationArea = All;
-                    Caption = 'Check for file';
+                    Caption = 'File Directory';
                 }
             }
             part(SCList; "Sharepoint Connector List")
